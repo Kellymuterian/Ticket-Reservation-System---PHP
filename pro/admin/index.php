@@ -9,7 +9,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
                 <span class="info-box-icon"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">attendees</span>
+                    <span class="info-box-text">Attendees</span>
                     <span class="info-box-number"><?php
                                                     echo $reg =  $conn->query("SELECT * FROM attendee")->num_rows;
                                                     ?></span>
@@ -85,6 +85,28 @@ if (!isset($file_access)) die("Direct File Access Denied");
         </div>
 
         <!-- /.col-md-6 -->
+        <div class="col-md-3 col-sm-6 col-12">
+        <div class="info-box bg-success">
+            <span class="info-box-icon"><i class="fa fa-dollar-sign"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Payments</span>
+                <span class="info-box-number"> Ksh <?php
+                                                    $con = connect();
+                                                    $row = $con->query("SELECT SUM(amount) AS amount FROM payment")->fetch_assoc();
+                                                    echo $row['amount'] == null ? '0' : number_format($row['amount']);
+                                                    ?></span>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%"></div>
+                </div>
+
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+
     </div>
 
     <!-- /.row -->

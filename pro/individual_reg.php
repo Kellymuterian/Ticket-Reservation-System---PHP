@@ -74,7 +74,7 @@ alert("We could not register you!.");
         <h2>Create Account </h2>
         <br>
         <p class="alert alert-info">
-            <marquee behavior="" scrollamount="2" direction="">You need to create an account to book/view Events!
+            <marquee behavior="" scrollamount="2" direction="">You need to create an account to reserve Events!
             </marquee>
         </p>
         <form class="login-form" method="post" role="form" enctype="multipart/form-data" id="signup-form"

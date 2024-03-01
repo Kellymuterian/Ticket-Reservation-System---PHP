@@ -1,3 +1,4 @@
+
 <?php
 if (!isset($file_access)) die("Direct File Access Denied");
 $source = 'dynamic';
@@ -13,15 +14,11 @@ $me = "?page=$source";
                     <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">
-                                All tickets</h3>
+                                All Tickets</h3>
                             <div class='float-right'>
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                     data-target="#add">
-                                    Add New ticket &#128645;
-                                <!-- </button> - - - <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                    data-target="#add2">
-                                    Add Range ticket &#128645;
-                                </button> -->
+                                    Add New ticket
                             </div>
                         </div>
 
@@ -36,7 +33,7 @@ $me = "?page=$source";
                                         <th>Event</th>
                                         <th>VIP Fee</th>
                                         <th>Regular Fee</th>
-                                        <th>Total Bookings</th>
+                                        <th>Reservations Available</th>
                                         <th>Date/Time</th>
                                         <th>Actions</th>
                                     </tr>
@@ -80,10 +77,7 @@ $me = "?page=$source";
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Editing <?php echo $fullname;
-
-
-                                                                                        ?> &#128642;</h4>
+                                                    <h4 class="modal-title">Editing Ticket For</h4>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -168,8 +162,7 @@ $me = "?page=$source";
     <div class="modal-dialog modal-lg">
         <div class="modal-content" align="center">
             <div class="modal-header">
-                <h4 class="modal-title">Add New ticket &#128649;
-                </h4>
+                <h4 class="modal-title">Add New ticket</h4>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -179,10 +172,10 @@ $me = "?page=$source";
                 <form action="" method="post">
                     <div class="row">
                         <div class="col-sm-6">
-                            Event : <select class="form-control" name="events_id" required id="">
+                            Event(s) Without Ticket : <select class="form-control" name="events_id" required id="">
                                 <option value="">Select Event</option>
                                 <?php
-                                $con = connect()->query("SELECT * FROM events");
+                                $con = connect()->query("SELECT * FROM events WHERE id NOT IN (SELECT events_id FROM ticket)");
                                 while ($row = $con->fetch_assoc()) {
                                     echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
                                 }
@@ -238,95 +231,6 @@ $me = "?page=$source";
     <!-- /.modal-dialog -->
 </div>
 
-
-<div class="modal fade" id="add2">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content" align="center">
-            <div class="modal-header">
-                <h4 class="modal-title">Add Range ticket &#128649;
-                </h4>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="post">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            Event : <select class="form-control" name="events_id" required id="">
-                                <option value="">Select Event</option>
-                                <?php
-                                $con = connect()->query("SELECT * FROM events");
-                                while ($row = $con->fetch_assoc()) {
-                                    echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
-                                }
-                                ?>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            VIP Class Charge : <input class="form-control" type="number" name="vip_fee" required>
-                        </div>
-                        <div class="col-sm-6">
-
-                            Regular Class Charge : <input class="form-control" type="number" name="regular_fee" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            From Date : <input class="form-control" onchange="check(this.value)" type="date"
-                                name="from_date" required>
-                        </div>
-                        <div class="col-sm-6">
-                            End Date : <input class="form-control" onchange="check(this.value)" type="date"
-                                name="to_date" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6"> Every :
-                            <select class="form-control" name="every">
-                                <option value="Day">Day</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-6">
-
-                            Time : <input class="form-control" type="time" name="time" required id="">
-                        </div>
-                    </div>
-                    <hr>
-                    <input type="submit" name="submit2" class="btn btn-success" value="Add ticket"></p>
-                </form>
-
-                <script>
-                function check(val) {
-                    val = new Date(val);
-                    var age = (Date.now() - val) / 31557600000;
-                    var formDate = document.getElementById('date');
-                    if (age > 0) {
-                        alert("You are using a past/current date!");
-                        val.value = "";
-                        return false;
-                    }
-                }
-                </script>
-
-            </div>
-
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
 <?php
 
 if (isset($_POST['submit'])) {
@@ -407,18 +311,39 @@ if (isset($_POST['edit'])) {
         alert("Fill Form Properly!");
     } else {
         $conn = connect();
+
+        // Fetch event name based on events_id
+        $event_query = $conn->query("SELECT name FROM events WHERE id = '$events_id'");
+        $event_data = $event_query->fetch_assoc();
+        $event_name = $event_data['name'];
+
         $ins = $conn->prepare("UPDATE `ticket` SET `events_id`=?,`date`=?,`time`=?,`vip_fee`=?,`regular_fee`=? WHERE id = ?");
         $ins->bind_param("isiiii", $events_id, $date, $time, $vip_fee, $regular_fee, $id);
         $ins->execute();
-        $msg = "Having considered user's satisfactions and every other things, we the management are so sorry to let inform you that there has been a change in the date and time of your Event. <hr/> New Date : $date. <br/> New Time : ".formatTime($time)." <hr/> Kindly disregard if the date/time still stays the same.";
+
+        $msg = "<html><body>";
+        $msg .= "<p>Dear Customer,</p>";
+        $msg .= "<p>We would like to inform you that there has been a change in the details of your ticket for the: $event_name.</p>";
+        $msg .= "<ul>";
+        $msg .= "<li>VIP Fee: Ksh $vip_fee </li>";
+        $msg .= "<li>Regular Fee: Ksh $regular_fee </li>";
+        $msg .= "<li>Date: $date </li>";
+        $msg .= "<li>Time: $time </li>";
+        $msg .= "</ul>";
+        $msg .= "<p>If you have any questions or concerns, please feel free to contact us.</p>";
+        $msg .= "<p>Thank you for your understanding.</p>";
+        $msg .= "</body></html>";
+
         $e = $conn->query("SELECT attendee.email FROM attendee INNER JOIN bookedtickets ON bookedtickets.user_id = attendee.id WHERE bookedtickets.ticket_id = '$id' ");
         while($getter = $e->fetch_assoc()){
-            @sendMail($getter['email'], "Change In Trip Date/Time", $msg);
+            @sendMail($getter['email'], "Change In Ticket Details", $msg);
         }
-        alert("ticket Modified!");
+        alert("Ticket Modified!");
         load($_SERVER['PHP_SELF'] . "$me");
     }
 }
+
+
 
 
 

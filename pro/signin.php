@@ -61,7 +61,7 @@ alert("Access Denied.");
 ?>
 <div class="signup-page">
     <div class="form">
-        <h2>Customer Panel</h2>
+        <h2>Attendee Panel</h2>
         <br>
         <form class="login-form" method="post" role="form" id="signup-form" autocomplete="off">
             <!-- json response will be here -->

@@ -7,7 +7,7 @@ include '../constants.php';
 if (@$_GET['page'] == 'print' && isset($_GET['print'])) printClearance($_GET['print']);
 $fullname =  getIndividualName($_SESSION['user_id'], $conn);
 if (isset($_GET['error'])) {
-    echo "<script>alert('Payment could not be initialized! Network Error!'); window.location = 'individual.php?page=reg';</script>";
+    echo "<script>alert('Reservation could not be initialized! Network Error!'); window.location = 'individual.php?page=reg';</script>";
     exit;
 }
 ?>
@@ -94,13 +94,13 @@ if (isset($_GET['error'])) {
                         <li class="nav-item">
                             <a href="individual.php?page=reg" class="nav-link <?php echo (@$_GET['page'] == 'reg') ? 'active' : '';?>">
                                 <i class="fa fa-plus nav-icon"></i>
-                                <p>New Booking</p>
+                                <p>New Reservation</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="individual.php?page=paid" class="nav-link <?php echo (@$_GET['page'] == 'paids') ? 'active' : '';?>">
                                 <i class="fa fa-book nav-icon"></i>
-                                <p>View Bookings</p>
+                                <p>View Reservations</p>
                             </a>
 
                         </li>

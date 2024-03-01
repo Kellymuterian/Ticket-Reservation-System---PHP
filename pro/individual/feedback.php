@@ -6,7 +6,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
 
 ?>
 <!-- Content Header (Page header) -->
-<!-- <section class="content-header">
+<section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
@@ -15,7 +15,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
 
         </div>
     </div>
-</section> -->
+</section>
 
 <section class="content">
     <div class="container-fluid">

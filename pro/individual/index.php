@@ -16,10 +16,10 @@ if (!isset($file_access)) die("Direct File Access Denied");
                     </div>
                     <div class="card-body">
                         Use the links at the left.
-                        <br />You can see list of events by clicking on "New Booking". The system will display list
-                        of available events and their tickets for you which you can view and make bookings from. 
+                        <br />You can see list of events by clicking on "New Reservation". The system will display list
+                        of available events and their tickets for you which you can view and make Reservations from. 
                         <br>After a successful reservation, you will get an email notification. <br>You are
-                        allowed to view all your booking history by clicking on "View Bookings".
+                        allowed to view all your Reservation history by clicking on "View Reservations".
                     </div>
                 </div>
             </div><?php
@@ -35,7 +35,7 @@ if (!isset($file_access)) die("Direct File Access Denied");
 
                     <div class="card">
                         <div class="card-header alert-success">
-                            <h5 class="m-0">Booking Preview</h5>
+                            <h5 class="m-0">Reservation Preview</h5>
                         </div>
                         <div class="card-body">
                             <div class="callout callout-info">

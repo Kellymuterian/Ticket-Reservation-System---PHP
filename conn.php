@@ -3,7 +3,7 @@
 function connect()
 {
     $conn = new mysqli("localhost", "root", "", "ticketsys");
-    if (!$conn) die("Database is being upgrade!");
+    if (!$conn) die("Database is being upgraded!");
     return $conn;
 }
 $conn = connect();

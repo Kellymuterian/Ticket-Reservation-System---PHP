@@ -183,8 +183,6 @@ $fullname =  "System Administrator";
                 include 'admin/events.php';
             elseif ($_GET['page'] == 'users')
                 include 'admin/users.php';
-            // elseif ($_GET['page'] == 'route')
-            //     include 'admin/route.php';
             elseif ($_GET['page'] == 'logout') {
                 @session_destroy();
                 echo "<script>alert('You are being logged out'); window.location='../';</script>";

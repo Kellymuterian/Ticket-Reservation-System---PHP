@@ -17,7 +17,7 @@ $me = $_SESSION['user_id'];
 
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Book Event Tickets</b></h3>
+                    <h3 class="card-title"><b>Reserve Event Tickets</b></h3>
                 </div>
                 <div class="card-body">
 
@@ -65,7 +65,7 @@ $me = $_SESSION['user_id'];
                                         <td><?php echo $db_date, " / ", formatTime($db_time); ?></td>
                                         <td>
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#book<?php echo $id ?>">
-                                                Book
+                                                Reserve
                                             </button>
                                         </td>
                                     </tr>
@@ -75,7 +75,7 @@ $me = $_SESSION['user_id'];
                                         <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title">Book For <?php echo $fullname;
+                                            <h4 class="modal-title">Reserve For <?php echo $fullname;
 
 
                                                                                     ?> </h4>

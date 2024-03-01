@@ -13,11 +13,11 @@ $me = "?page=$source";
                     <div class="card card-success">
                         <div class="card-header">
                             <h3 class="card-title">
-                                All eventss</h3>
+                                All Events</h3>
                             <div class='float-right'>
                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                     data-target="#add">
-                                    Add New events &#128645;
+                                    Add New Events
                                 </button></div>
                         </div>
 
@@ -29,10 +29,10 @@ $me = "?page=$source";
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>events Name</th>
-                                        <th>VIP Class Seat</th>
-                                        <th>REGULAR Class Seat</th>
-                                        <th style="width: 30%;">Action</th>
+                                        <th>Events Name</th>
+                                        <th>VIP Class Seat(s)</th>
+                                        <th>REGULAR Class Seat(s)</th>
+                                        <th style="width: 20%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,7 +92,7 @@ $me = "?page=$source";
                                                                 value="<?php echo $fetch['vip_seat'] ?>"
                                                                 name="vip_seat" required id="">
                                                         </p>
-                                                        <p> Class Capacity : <input type="number" min='0'
+                                                        <p>REGULAR Class Capacity : <input type="number" min='0'
                                                                 class="form-control"
                                                                 value="<?php echo $fetch['regular_seat'] ?>"
                                                                 name="regular_seat" required id="">
@@ -136,7 +136,7 @@ $me = "?page=$source";
     <div class="modal-dialog modal-lg">
         <div class="modal-content" align="center">
             <div class="modal-header">
-                <h4 class="modal-title">Add New Event &#128646;
+                <h4 class="modal-title">Add New Event 
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

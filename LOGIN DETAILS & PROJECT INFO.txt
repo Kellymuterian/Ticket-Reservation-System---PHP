@@ -1,0 +1,10 @@
+**Database Name: ticketsys**
+
+**Developed by Kelvin Muterian**
+
+
+**Admin Login Details**
+
+Email   : admin@gmail.com
+Password: admin
+

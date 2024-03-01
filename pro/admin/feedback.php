@@ -27,7 +27,7 @@ $me = "?page=$source";
                                         <th>Attendee</th>
                                         <th>Message</th>
                                         <th>Status</th>
-                                        <th style="width: 30%;">Action</th>
+                                        <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

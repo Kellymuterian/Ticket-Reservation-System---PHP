@@ -1,6 +1,6 @@
 <?php
 require_once 'session.php';
-require_once '../conn.php'; // Include your database connection file here
+require_once '../conn.php'; 
 require_once '../constants.php';
 
 // Start the session

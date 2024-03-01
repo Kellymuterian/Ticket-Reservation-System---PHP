@@ -24,7 +24,7 @@ if (isset($_POST['modify'])) {
 
                 <div class="card">
                     <div class="card-header alert-success">
-                        <h5 class="m-0">Bookings - Purchased Tickets</h5>
+                        <h5 class="m-0">Reserved Tickets</h5>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered" id='example1'>
