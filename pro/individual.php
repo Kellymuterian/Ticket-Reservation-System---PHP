@@ -4,7 +4,6 @@ $file_access = true;
 include '../conn.php';
 include 'session.php';
 include '../constants.php';
-if (@$_GET['page'] == 'print' && isset($_GET['print'])) printClearance($_GET['print']);
 $fullname =  getIndividualName($_SESSION['user_id'], $conn);
 if (isset($_GET['error'])) {
     echo "<script>alert('Reservation could not be initialized! Network Error!'); window.location = 'individual.php?page=reg';</script>";
@@ -159,9 +158,7 @@ if (isset($_GET['error'])) {
                 @session_destroy();
                 echo "<script>alert('You are being logged out'); window.location='../';</script>";
                 exit;
-            } elseif ($_GET['page'] == 'print') {
-                printClearance($user_id);
-                include 'individual/status.php';
+
             } else {
                 //Feedback
                 include 'individual/feedback.php';
